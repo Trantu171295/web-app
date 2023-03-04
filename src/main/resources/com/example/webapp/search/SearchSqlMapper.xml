@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.webapp.search.SearchSqlMapper">
+
+	<select id="getRoleId" resultType="String">
+		SELECT
+			ROLE_ID AS roleId
+		FROM
+			USER_TBL
+		WHERE
+			USER_ID = #{userId}
+			AND ENABLED = '0'
+	</select>
+
+	<select id="getCategoryCd" resultType="HashMap">
+		SELECT
+			CATEGORY_CD
+			,CATEGORY_NM
+		FROM
+			CATEGORY_TBL
+	</select>
+	<select id="getProductInfo"
+		resultType="com.example.webapp.search.SearchFormT1Row">
+		SELECT
+			A.PRODUCT_CD AS productCd
+			, A.PRODUCT_NM AS productNm
+			, B.CATEGORY_NM AS categoryCd
+			, A.MAKER_NAME AS makerName
+			, A.PRICE AS price
+			, A.QUANTITY AS quantity
+		FROM
+			PRODUCT_TBL A
+			INNER JOIN CATEGORY_TBL B
+				ON A.CATEGORY_CD = B.CATEGORY_CD
+		WHERE
+			A.SALE_FLAG IN ('0', '1')
+			<if test="productCd != ''">
+				AND A.PRODUCT_CD = #{productCd}
+			</if>
+			<if test="productNm != ''">
+				AND A.PRODUCT_NM LIKE '%' || #{productNm} || '%'
+			</if>
+			<if test="categoryCd != '000'">
+				AND A.CATEGORY_CD = #{categoryCd}
+			</if>
+			<if test="makerName != ''">
+				AND A.MAKER_NAME LIKE '%' || #{makerName} || '%'
+			</if>
+	</select>
+</mapper>

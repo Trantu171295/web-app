@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security4" th:object="${addForm}">
+<head>
+<meta charset="UTF-8">
+<title>Tạp hóa Quang Ý</title>
+<link rel="stylesheet" type="text/css" href="../../css/library/slick.css" />
+<link rel="stylesheet" type="text/css" href="../../css/library/slick-theme.css" />
+<link rel="stylesheet" type="text/css" href="../../css/library/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../../css/app/add.css" />
+<link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+  crossorigin="anonymous">
+
+</head>
+<body>
+  <form th:action="@{/add}" method="post">
+    <div id="container">
+      <header>
+        <!-- 共通ヘッダー -->
+        <div th:replace="common :: common-header"></div>
+      </header>
+      <!-- 画面のメイン部分 -->
+      <main>
+        <div class="box box-primary">
+          <div class="box-body">
+            <div class="form-group row">
+              <label class="col-md-2 col-form-label" style="text-align: right;">Mã sản phẩm</label>
+              <div class="col-md-8">
+                <input type="text" class="form-control input-sm" maxlength="20"  th:field="*{productCd}">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-2 col-form-label" style="text-align: right;">Tên sản phẩm</label>
+              <div class="col-md-8">
+                <input type="text" class="form-control input-sm" maxlength="100" th:field="*{productNm}">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-2 col-sm-2 control-label" style="text-align: right;">Loại mặt hàng</label>
+              <div class="col-md-8">
+                <select th:field="*{categoryCd}" class="form-control input-sm">
+                  <option th:each="condition : *{originalMap.get('cnCategoryCd')}" th:value="${condition.key}" th:text="${condition.value}" />
+                </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-2 col-form-label" style="text-align: right;">Tên nhà sản xuất</label>
+              <div class="col-md-8">
+                <input type="text" class="form-control input-sm" maxlength="100" th:field="*{makerName}">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-2 col-form-label" style="text-align: right;">Giá bán</label>
+              <div class="col-md-8">
+                <input type="text" class="form-control input-sm" maxlength="13" th:field="*{price}">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-2 col-form-label" style="text-align: right;">Số lượng</label>
+              <div class="col-md-8">
+                <input type="text" class="form-control input-sm" maxlength="10" th:field="*{quantity}">
+              </div>
+              <div hidden="hidden">
+                <input type="text" class="form-control input-sm" th:field="*{userId}">
+                <input type="text" class="form-control input-sm" th:field="*{senimotoGamenId}">
+                <input type="text" class="form-control input-sm" th:field="*{insFlg}">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="box box-solid">
+          <div class="box-body">
+            <div class="form-group row">
+              <div class="col-md-2"></div>
+              <div class="col-md-2" align="left">
+                <button class="btn btn-primary" type="submit" id="backBtn" name="backBtn">Quay lại</button>
+              </div>
+              <div class="col-md-6" align="right">
+                <button class="btn btn-primary" type="submit" id="insBtn" name="insBtn">Thêm</button>
+                <button class="btn btn-primary" type="submit" id="editBtn" name="editBtn">Sửa</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <!-- 共通フッター -->
+      <footer>
+        <div th:replace="common :: common-footer"></div>
+      </footer>
+    </div>
+    <script type="text/javascript" th:src="@{../../js/library/jquery-3.6.0.js}"></script>
+    <script type="text/javascript" th:src="@{../../js/library/jquery.dataTables.min.js}"></script>
+    <script type="text/javascript" th:src="@{../../js/library/slick.min.js}"></script>
+    <script type="text/javascript" th:src="@{../../js/library/bootstrap.js}"></script>
+    <script type="text/javascript" th:src="@{../../js/app/add.js}"></script>
+    <script type="text/javascript" th:src="@{../../js/app/common.js}"></script>
+  </form>
+</body>
+</html>

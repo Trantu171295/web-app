@@ -1,0 +1,18 @@
+plugins {
+	id 'war'
+	id 'eclipse-wtp'
+}
+
+sourceCompatibility = 11
+tasks.withType(JavaCompile) {options.encoding = 'UTF-8'}
+repositories.mavenCentral()
+
+dependencies {
+	compileOnly 'jakarta.servlet:jakarta.servlet-api:4.0.+'
+	implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.+'
+}
+
+eclipse.wtp.facet.file.withXml { xml ->
+	def node = xml.asNode();
+	if (!node.runtime) node.appendNode('runtime', [name: 'Tomcat9 (Java11)'])
+}

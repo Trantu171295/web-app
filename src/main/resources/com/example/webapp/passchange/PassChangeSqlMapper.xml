@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.webapp.passchange.PassChangeSqlMapper">
+	<update id="updPass" parameterType="com.example.webapp.passchange.PassChangeForm">
+	 UPDATE USER_TBL
+     SET
+         PASS_WORD = #{form.newPass}
+         , HASH_BEFORE_PASS = #{form.newPass2}
+         , UPD_TMSTMP = #{form.updTmstmp}
+     WHERE
+         USER_ID = #{form.userId}
+	</update>
+</mapper>

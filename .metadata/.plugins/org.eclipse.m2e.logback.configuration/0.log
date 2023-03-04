@@ -1,0 +1,32 @@
+2023-03-04 18:21:26,667 [Worker-8: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-03-04 18:22:16,118 [Worker-6: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-03-04 18:23:54,481 [Worker-7: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-03-04 18:24:12,972 [Worker-2: ビルド] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: web-app:test-security:0.0.1-SNAPSHOT @ E:\git\web-app\test-security\pom.xml.
+2023-03-04 18:24:15,485 [Worker-2: ビルド] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-03-04 18:24:15,485 [Worker-2: ビルド] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2023-03-04 18:24:15,488 [Worker-2: ビルド] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2023-03-04 18:24:15,502 [Worker-2: ビルド] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 69 resources
+2023-03-04 18:24:16,022 [Worker-2: ビルド] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-03-04 18:24:16,022 [Worker-2: ビルド] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2023-03-04 18:24:16,022 [Worker-2: ビルド] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\web-app\test-security\src\test\resources
+2023-03-04 18:24:17,964 [Worker-1: ビルド] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-03-04 18:24:17,964 [Worker-1: ビルド] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2023-03-04 18:24:17,967 [Worker-1: ビルド] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2023-03-04 18:24:17,970 [Worker-1: ビルド] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 69 resources
+2023-03-04 18:24:18,029 [Worker-1: ビルド] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-03-04 18:24:18,030 [Worker-1: ビルド] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2023-03-04 18:24:18,030 [Worker-1: ビルド] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\web-app\test-security\src\test\resources
+2023-03-04 18:24:47,173 [Worker-1: Maven プロジェクトの更新中] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2023-03-04 18:24:47,426 [Worker-1: Maven プロジェクトの更新中] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: web-app:test-security:0.0.1-SNAPSHOT @ E:\git\web-app\test-security\pom.xml.
+2023-03-04 18:24:47,803 [Worker-1: Maven プロジェクトの更新中] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /test-security/src/main/java
+2023-03-04 18:24:47,804 [Worker-1: Maven プロジェクトの更新中] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /test-security/src/main/resources
+2023-03-04 18:24:47,805 [Worker-1: Maven プロジェクトの更新中] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /test-security/src/main/resources
+2023-03-04 18:24:47,806 [Worker-1: Maven プロジェクトの更新中] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /test-security/src/test/java
+2023-03-04 18:24:48,027 [Worker-1: Maven プロジェクトの更新中] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 0 sec
+2023-03-04 18:24:48,742 [Worker-4: ビルド] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-03-04 18:24:48,742 [Worker-4: ビルド] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2023-03-04 18:24:48,744 [Worker-4: ビルド] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2023-03-04 18:24:48,754 [Worker-4: ビルド] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 69 resources
+2023-03-04 18:24:48,927 [Worker-4: ビルド] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-03-04 18:24:48,927 [Worker-4: ビルド] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2023-03-04 18:24:48,927 [Worker-4: ビルド] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\web-app\test-security\src\test\resources

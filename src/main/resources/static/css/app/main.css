@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+body {
+  background-color: #eee;
+}
+
+#container {
+	min-height: 100vh;
+	position: relative;
+	padding-bottom: 30px;
+	box-sizing: border-box;
+}
+
+#site-header {
+	background: #81bcd8;
+	display: flex;
+	padding: 15px 20px;
+	position: fixed;
+	justify-content: space-between;
+	width: 100%;
+	z-index: 9999;
+	top: 0px;
+	left: 0px;
+}
+
+main {
+	margin-top: 80px;
+	margin-bottom: 0;
+}
+
+footer {
+	background: #81bcd8;
+	padding: 0;
+	width: 100%;
+	z-index: 9999;
+	position: absolute;
+	bottom: 0;
+}
+
+#advertisement {
+	margin-top: 25px;
+	padding: 50px;
+}
+
+#copyright {
+	color: #fff;
+	font-size: 16px;
+	text-align: center;
+}
+
+#homeBtn {
+	display: none;
+}

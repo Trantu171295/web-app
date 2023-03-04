@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.webapp.add.AddSqlMapper">
+<select id="getCategoryCd" resultType="HashMap">
+		SELECT
+			CATEGORY_CD
+			,CATEGORY_NM
+		FROM
+			CATEGORY_TBL
+	</select>
+
+<insert id="addProductInfo"
+		parameterType="com.example.webapp.add.AddForm">
+	INSERT INTO PRODUCT_TBL(
+		PRODUCT_CD
+		, PRODUCT_NM
+		, CATEGORY_CD
+		, MAKER_NAME
+		, SALE_FLAG
+		, PRICE
+		, QUANTITY
+		, REGST_TMSTMP
+		, UPD_TMSTMP
+		)
+	VALUES (
+		#{form.productCd}
+		, #{form.productNm}
+		, #{form.categoryCd}
+		, #{form.makerName}
+		, '0'
+		, #{form.price}
+		, #{form.quantity}
+		, #{tmstmp}
+		, #{tmstmp}
+		)
+	</insert>
+
+	<update id="updProductInfo" parameterType="com.example.webapp.add.AddForm">
+		UPDATE PRODUCT_TBL
+		SET
+			PRODUCT_NM = #{form.productNm}
+			, CATEGORY_CD = #{form.categoryCd}
+			, MAKER_NAME = #{form.makerName}
+			, SALE_FLAG = #{form.saleFlag}
+			, PRICE = #{form.price}
+			, QUANTITY = #{form.quantity}
+			, UPD_TMSTMP = #{updTmstmp}
+		WHERE
+			PRODUCT_CD = #{form.productCd}
+	</update>
+</mapper>

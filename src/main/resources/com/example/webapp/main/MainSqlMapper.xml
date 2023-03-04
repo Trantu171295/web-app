@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.webapp.main.MainSqlMapper">
+	<select id="getUserInfo"
+		resultType="com.example.webapp.main.MainFormT1Row">
+		SELECT
+			USER_ID AS userId
+			, USER_NAME AS userName
+			, MAIL AS mail
+			, NICK_NAME AS nickName
+			, PHONE_NUMBER AS phoneNumber
+			, REGST_TMSTMP AS regstTmstmp
+			, UPD_TMSTMP AS updTmstmp
+		FROM
+			USER_TBL
+		WHERE
+			ROLE_ID <![CDATA[ <> ]]>
+			'R99999'
+			AND ENABLED = #{accSttFlg}
+			<if test="searchUserId != null">
+				AND USER_ID LIKE '%' || #{searchUserId} || '%'
+			</if>
+		ORDER BY
+			USER_ID
+	</select>
+
+	<select id="getRoleId" resultType="String">
+		SELECT
+			ROLE_ID AS roleId
+		FROM
+			USER_TBL
+		WHERE
+			USER_ID = #{userId}
+			AND ENABLED = '0'
+	</select>
+
+	<update id="delUserInfo" parameterType="com.example.webapp.detail.DetailForm">
+		UPDATE USER_TBL
+		SET
+			ENABLED = '1',
+			UPD_TMSTMP = #{updTmstmp}
+		WHERE
+			USER_ID IN
+		<foreach item="userId" open="(" close=")"
+			collection="userIdList" separator=",">
+			#{userId}
+		</foreach>
+	</update>
+
+	<update id="refUserInfo" parameterType="java.util.List">
+		UPDATE USER_TBL
+		SET
+			ENABLED = '0',
+			UPD_TMSTMP = #{updTmstmp}
+		WHERE
+			USER_ID IN
+		<foreach item="userId" open="(" close=")"
+			collection="userIdList" separator=",">
+			#{userId}
+		</foreach>
+	</update>
+</mapper>

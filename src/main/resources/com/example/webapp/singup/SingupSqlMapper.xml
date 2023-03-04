@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.webapp.singup.SingupSqlMapper">
+	   	<insert id="insertUserInfo"
+		parameterType="com.example.webapp.singup.SingupForm">
+	INSERT INTO USER_TBL(
+		ROLE_ID
+		, USER_ID
+		, PASS_WORD
+		, USER_NAME
+		, MAIL
+		, NICK_NAME
+		, PHONE_NUMBER
+		, REGST_TMSTMP
+		, UPD_TMSTMP
+		, HASH_BEFORE_PASS
+		)
+	VALUES (
+		#{form.roleId}
+		, #{form.userId}
+		, #{form.pass}
+		, #{form.userName}
+		, #{form.mail}
+		, #{form.nickName}
+		, #{form.phoneNumber}
+		, #{form.regstTmstmp}
+		, #{form.updTmstmp}
+		, #{form.pass2}
+		)
+	</insert>
+	<select id="getUserCnt"
+		resultType="int">
+	   SELECT
+           COUNT(*)
+       FROM
+           USER_TBL
+       WHERE
+           USER_ID =  #{userId}
+           AND ENABLED = '0'
+	</select>
+	<select id="getMailCnt"
+		resultType="int">
+	   SELECT
+           COUNT(*)
+       FROM
+           USER_TBL
+       WHERE
+           MAIL =  #{mail}
+           AND ENABLED = '0'
+	</select>
+	<select id="getPhoneCnt"
+		resultType="int">
+	   SELECT
+           COUNT(*)
+       FROM
+           USER_TBL
+       WHERE
+           PHONE_NUMBER =  #{num}
+           AND ENABLED = '0'
+	</select>
+</mapper>

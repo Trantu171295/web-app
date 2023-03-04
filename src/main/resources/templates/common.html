@@ -1,0 +1,77 @@
+<!-- 共通ヘッダー -->
+<div th:fragment="common-header">
+  <div id="site-header">
+    <!-- 画面名 -->
+    <div class="col-md-3" id="gamenName" align="left">
+      <h3 class="box-title">
+        <b th:text="*{gamenNm}">画面名</b>
+      </h3>
+    </div>
+    <!-- ヘッダー中央ボタン -->
+    <div class="col-md-4" id="header-button" align="left">
+      <button class="btn btn-primary" type="submit" id="homeBtn" name="homeBtn" style="margin-right: 5px">Trang Chủ</button>
+      <button class="btn btn-primary" type="submit" id="searchBtn" name="searchBtn" style="margin-right: 5px">Tìm kiếm</button>
+      <button class="btn btn-primary" type="submit" id="profileBtn" name="profileBtn" style="margin-right: 5px">Trang cá nhân</button>
+      <button class="btn btn-primary" type="submit" id="accessBtn" name="accessBtn" style="margin-right: 5px">Cửa hàng</button>
+    </div>
+    <!-- ニックネーム -->
+    <div class="col-md-2" id="nickname" align="left">
+      <p th:text="*{nickName}">Nick Name</p>
+    </div>
+    <!-- ヘッダー右ボタン -->
+    <div class="col-md-3" id="header-right-button" align="right" th:if="${#authorization.expression('isAuthenticated()')}">
+      <button class="btn btn-dark" type="submit" id="passChangeBtn" name="passChangeBtn" style="margin-right: 5px">Đổi mật khẩu</button>
+      <button class="btn btn-dark" type="submit" tyle="margin-right: 10px" id="logoutBtn" name="logoutBtn">Đăng Xuất</button>
+    </div>
+  </div>
+</div>
+
+<!-- 共通フッター -->
+<div th:fragment="common-footer">
+  <footer id="site-footer">
+    <div class="form-group row">
+      <div class="col-md-6" align="left">
+        <p id="copyright">@2021 Copy Right By Anh Coi</p>
+      </div>
+      <div class="col-md-6" align="center">
+        <span id="view_clock"></span>
+        <script type="text/javascript">
+                                    timerID = setInterval('clock()', 500); //0.5秒毎にclock()を実行
+
+                                    function clock() {
+                                        document.getElementById("view_clock").innerHTML = getNow();
+                                    }
+
+                                    function getNow() {
+                                        var now = new Date();
+                                        var year = now.getFullYear();
+                                        var mon = now.getMonth() + 1; //１を足すこと
+                                        var day = now.getDate();
+                                        var hour = now.getHours();
+                                        var min = now.getMinutes();
+                                        var sec = now.getSeconds();
+
+                                        if (mon <= 9) {
+                                            mon = "0" + mon;
+                                        }
+
+                                        if (day <= 9) {
+                                            day = "0" + day;
+                                        }
+                                        if (sec <= 9) {
+                                            sec = "0" + sec;
+                                        }
+
+                                        //出力用
+                                        var s = "Bây giờ là " + hour + ":"
+                                                + min + ":" + sec + "  ngày "
+                                                + day + " tháng " + mon
+                                                + " năm " + year;
+                                        return s;
+                                    }
+                                </script>
+      </div>
+    </div>
+  </footer>
+</div>
+

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.webapp.CommonSqlMapper">
+<select id="getRoleId" resultType="String">
+		SELECT
+			ROLE_ID AS roleId
+		FROM
+			USER_TBL
+		WHERE
+			USER_ID = #{userId}
+			AND ENABLED = '0'
+</select>
+	
+<select id="getNickName"
+		resultType="String">
+	   SELECT
+           NICK_NAME AS nickName
+       FROM
+           USER_TBL
+       WHERE
+           USER_ID =  #{userId}
+           AND ENABLED = '0'
+</select>
+
+<select id="getUserName"
+		resultType="String">
+	   SELECT
+           USER_NAME AS userName
+       FROM
+           USER_TBL
+       WHERE
+           USER_ID =  #{userId}
+           AND ENABLED = '0'
+</select>
+
+
+<select id="getCategoryCd" resultType="HashMap">
+		SELECT
+			CATEGORY_CD
+			,CATEGORY_NM
+		FROM
+			CATEGORY_TBL
+	</select>
+</mapper>

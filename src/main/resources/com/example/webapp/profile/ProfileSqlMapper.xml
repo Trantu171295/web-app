@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.webapp.profile.ProfileSqlMapper">
+<select id="selectUserInfo"
+		resultType="com.example.webapp.profile.ProfileShowForm">
+	   SELECT
+		ROLE_ID AS roleId
+        , USER_ID AS userId
+		, USER_NAME AS userName
+		, MAIL AS mail
+		, NICK_NAME AS nickName
+		, PHONE_NUMBER AS phoneNumber
+		, REGST_TMSTMP AS regstTmstmp
+		, UPD_TMSTMP AS updTmstmp
+       FROM
+           USER_TBL
+       WHERE
+           USER_ID =  #{userId}
+           AND ENABLED = '0'
+</select>
+
+<update id="updUserInfo" parameterType="java.util.List">
+		UPDATE
+			USER_TBL
+		SET
+	 		USER_NAME  = #{form.userName}
+			, MAIL  = #{form.mail}
+			, NICK_NAME  = #{form.nickName}
+			, PHONE_NUMBER  = #{form.phoneNumber}
+			, UPD_TMSTMP = #{updTmstmp}
+		WHERE
+			USER_ID =  #{form.userId}
+	</update>
+</mapper>

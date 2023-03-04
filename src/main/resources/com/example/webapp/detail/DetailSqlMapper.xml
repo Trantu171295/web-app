@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.webapp.detail.DetailSqlMapper">
+
+<select id="getRoleId" resultType="String">
+		SELECT
+			ROLE_ID AS roleId
+		FROM
+			USER_TBL
+		WHERE
+			USER_ID = #{userId}
+			AND ENABLED = '0'
+	</select>
+<select id="getCategoryCd" resultType="HashMap">
+		SELECT
+			CATEGORY_CD
+			,CATEGORY_NM
+		FROM
+			CATEGORY_TBL
+	</select>
+
+	<select id="getProductInfo"
+		resultType="com.example.webapp.detail.DetailForm">
+	   SELECT
+			A.PRODUCT_CD AS productCd
+			, A.PRODUCT_NM AS productNm
+			, A.CATEGORY_CD AS categoryCd
+			, A.MAKER_NAME AS makerName
+			, A.SALE_FLAG AS saleFlag
+			, A.PRICE AS price
+			, A.QUANTITY AS quantity
+		FROM
+			PRODUCT_TBL A
+		WHERE
+			A.PRODUCT_CD = #{productCd}
+	</select>
+
+	<update id="updProductInfo" parameterType="com.example.webapp.detail.DetailForm">
+		UPDATE PRODUCT_TBL
+		SET
+			PRODUCT_NM = #{form.productNm}
+			, CATEGORY_CD = #{form.categoryCd}
+			, MAKER_NAME = #{form.makerName}
+			, SALE_FLAG = #{form.saleFlag}
+			, PRICE = #{form.price}
+			, QUANTITY = #{form.quantity}
+			, UPD_TMSTMP = #{updTmstmp}
+		WHERE
+			PRODUCT_CD = #{form.productCd}
+	</update>
+</mapper>
